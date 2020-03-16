@@ -3,7 +3,7 @@
     <div>
       <logo />
       <h1 class="title">
-        {{ posts }} </h1>
+       </h1>
     </div>
   </div>
 </template>

@@ -35,12 +35,19 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    
   ],
   /*
   ** Nuxt.js modules
   */
-  modules: [
-  ],
+ modules: [
+  '@nuxtjs/axios',
+],
+
+axios: {
+  // proxyHeaders: false
+  baseURL: process.env.API_URL || 'http://localhost:3001'
+},
   /*
   ** Build configuration
   */
