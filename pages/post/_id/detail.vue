@@ -3,8 +3,8 @@
             <el-card class="box-card">
                 <div slot="header" class="clearfix">
                     <h1 class="post-title"> {{post.title }}</h1>
-                    <el-button  style="float: right; padding: 3px 0" type="text" @click="editPost(post.id)">View post</el-button>
-                    <el-button  style="float: right; padding: 3px 0" type="text" @click="deletePost(post.id)">View post</el-button>
+                    <el-button  style="float: right; padding: 3px 0" type="text" @click="editPost(post.id)">Edit post</el-button>
+                    <el-button  style="float: right; padding: 3px 0" type="text" @click="deletePost(post)">Delete post</el-button>
                 </div>
                 <div v-for="o in 4" :key="o" class="text item">
                   {{post.description}}
@@ -25,6 +25,15 @@
             ...mapState({
                 post: state => state.post.singlePost
             })
+        },
+        methods: {
+            editPost(postId){
+                this.$router.push({path: `/post/${postId}/edit`})
+            },
+            deletePost(postId){
+                this.$store.dispatch('deletePost', postId)
+                this.$router.push('/post/list')
+            }
         }
     }
 </script>
